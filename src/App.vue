@@ -1,8 +1,15 @@
 <template>
   <div id="app">
-    <router-link v-bind:to="'/'">Home</router-link>
-    <router-link v-bind:to="'/about'">About</router-link>
-  <!-- the router outlet, where all matched components would ber viewed -->
+    <nav>
+      <div class="container">
+        <div class="btn-group btn-group-justified">
+          <router-link v-bind:to="'/'" class="btn btn-default">Home</router-link>
+          <router-link v-bind:to="'/Members'" class="btn btn-default">Members</router-link>
+          <router-link v-bind:to="'/ClanSettings'" class="btn btn-default">Clan Settings</router-link>
+          <router-link v-bind:to="'/AppSettings'" class="btn btn-default">App Settings</router-link>
+        </div>
+      </div>
+    </nav>
     <router-view></router-view>
   </div>
 </template>
@@ -21,6 +28,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+}
+.btn-group a{
+  color: #222;
+  font-size: 1.5em;
+}
+nav{
+  padding-top: 20px;
+  padding-bottom: 15px;
+  background-color: #444
 }
 </style>
