@@ -26,7 +26,7 @@ export default {
     .then(response => {
       // JSON responses are automatically parsed.
       console.log(response)
-      this.ClanName = response.ClanName
+      this.ClanName = response.Name
     })
     .catch(e => {
       this.errors.push(e)
