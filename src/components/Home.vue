@@ -1,35 +1,46 @@
 <template>
   <div class="Home">
-    <h1>{{ClanName}}</h1>
+    <section id="banner">
+      <div class="container">
+        <h1 id="clanName">{{ClanInfo.name}}</h1>
+        <h3 id="clanAbout">{{ClanInfo.about}}</h3>
+      </div>
+    </section>
+    
+    
+    <p>Members: </p>
+    <ul>
+      <li v-for="Member in ClanMembers">{{Member.destinyUserInfo.displayName}}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 import Axios from 'axios'
 
-export default {
+export default{
   data: () => ({
-    ClanName: '',
-    posts: [],
-    errors: []
-  }),
+    ClanInfo: {},
+    ClanMembers: {}
 
-// Fetches posts when the component is created.
+  }),
   created () {
     var config = {
       headers: {
         'X-API-Key': '46b46fd8932d4fd2a67642ac21e1b3dc'
       }
     }
-    // console.log(config)
+    // get Clan
     Axios.get('https://www.bungie.net/platform/GroupV2/2219355/', config)
     .then(response => {
-      // JSON responses are automatically parsed.
-      console.log(response)
-      this.ClanName = response.Name
+      // console.log(response.data.Response.detail)
+      this.ClanInfo = response.data.Response.detail
     })
-    .catch(e => {
-      this.errors.push(e)
+    // get Clan Members
+    Axios.get('https://www.bungie.net/platform/GroupV2/2219355/Members/?lc=en&fmt=true&currentPage=1&platformType=2', config)
+    .then(response => {
+      this.ClanMembers = response.data.Response.results
+      // console.log(this.ClanMembers)
     })
   }
 }
@@ -37,6 +48,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#banner{
+  width: 100%;
+  background-image: url('~assets/destiny-2-banner.png');
+}
+#clanName{
+  font-size: 5em;
+  font-family: fantasy;
+}
+#clanAbout{
+  font-style: italic;
+}
 h1, h2 {
   font-weight: normal;
 }
@@ -47,7 +69,6 @@ ul {
 }
 
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 

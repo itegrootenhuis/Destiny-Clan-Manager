@@ -2,29 +2,10 @@
 
 > Manager your Destiny Clan
 
-## Build Setup
+I wanted to build the clan manager because I wanted to expand on what the offical companion app already had. I felt it was lacking some easy improvements. 
 
-``` bash
-# install dependencies
-npm install
+In DCM you will be able to see all of your clan members that have or haven't completed the raid, nightfall, or trials of nine for that week on all three of the their characters. It will also show you your clan rewards, clan level, and much more. 
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
+The App is in it's very early stages. If you have any suggestions for features go [here](https://github.com/itegrootenhuis/Destiny-Clan-Manager/issues/1) and comment below. If you have the skill set and wanna make a pull request feel free to do so. 
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
